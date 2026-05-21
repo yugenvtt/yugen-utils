@@ -1,0 +1,8 @@
+node_modules/
+dist/
+module.zip
+.env
+vite.local.ts
+vite.local.js
+package-lock.json
+*.log
