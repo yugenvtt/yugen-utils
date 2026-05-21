@@ -7,11 +7,12 @@ import { YugenUtils } from '../module/yugen-utils.js';
 
 export const init_hook = ( ) => 
 {
-	/** listen for initialization to register global api **/
+	/** register global api immediately at evaluation time to prevent race conditions **/
+	( globalThis as any ).yugen_utils = YugenUtils;
+
+	/** listen for initialization to log success **/
 	Hooks.once( 'init', ( ) => 
 	{
-		( globalThis as any ).yugen_utils = YugenUtils;
-
 		console.log( 'yugen-utils | initialized shared utility library successfully' );
 	} );
 };
