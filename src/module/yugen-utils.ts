@@ -145,4 +145,75 @@ export class YugenUtils
 
 		return { cp: 0, sp: 0, gp: 0, pp: 0 };
 	}
+
+	/**
+	 * unified logging, debugging, sanitization, and scene control registration 
+	 * to abstract v13/v14 foundry api discrepancies and deduplicate code
+	 **/
+
+	/**
+	 * logs a standardized lowercase message with a module prefix.
+	 **/
+	public static log( module_id: string, message: string, ...args: any[] ): void 
+	{
+		console.log( `${ module_id } | ${ message.toLowerCase( ) }`, ...args );
+	}
+
+	/**
+	 * logs a debug message if debug-mode setting is enabled for the module.
+	 **/
+	public static debug( module_id: string, message: string, ...args: any[] ): void 
+	{
+		let is_debug = false;
+		try 
+		{
+			is_debug = ( game as any ).settings?.get( module_id, 'debug-mode' ) ?? false;
+		}
+		catch ( e ) 
+		{
+			is_debug = false;
+		}
+
+		if ( is_debug ) 
+		{
+			console.log( `${ module_id } | [debug] ${ message.toLowerCase( ) }`, ...args );
+		}
+	}
+
+	/**
+	 * escapes user-generated HTML to prevent XSS injection.
+	 **/
+	public static escape_html( str: string ): string 
+	{
+		const div = document.createElement( 'div' );
+		div.innerText = str;
+		return div.innerHTML;
+	}
+
+	/**
+	 * registers a control tool on a specific scene control layer, handling v13/v14 compatibility.
+	 **/
+	public static register_control_tool( controls: any, layer_name: string, tool: any ): void 
+	{
+		const layer = Array.isArray( controls )
+			? controls.find( ( c: any ) => 
+			{
+				return c.name === layer_name;
+			} )
+			: controls[ layer_name ];
+
+		if ( !layer ) 
+		{
+			return;
+		}
+
+		if ( Array.isArray( layer.tools ) ) 
+		{
+			layer.tools.push( tool );
+		}
+		else 
+		{
+			layer.tools[ tool.name ] = tool;
+		}
+	}
 }
