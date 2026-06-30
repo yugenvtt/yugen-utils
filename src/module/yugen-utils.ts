@@ -195,12 +195,21 @@ export class YugenUtils
 	 **/
 	public static register_control_tool( controls: any, layer_name: string, tool: any ): void 
 	{
+		let target_name = layer_name;
+		if ( Array.isArray( controls ) ) 
+		{
+			if ( target_name === 'tokens' ) 
+			{
+				target_name = 'token';
+			}
+		}
+
 		const layer = Array.isArray( controls )
 			? controls.find( ( c: any ) => 
 			{
-				return c.name === layer_name;
+				return c.name === target_name;
 			} )
-			: controls[ layer_name ];
+			: controls[ target_name ];
 
 		if ( !layer ) 
 		{
