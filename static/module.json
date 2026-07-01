@@ -3,7 +3,7 @@
 	"name": "yugen-utils",
 	"title": "yugen-utils",
 	"description": "Standalone shared utility library for yugen modules.",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"authors": [
 		{
 			"name": "yugen."
@@ -28,7 +28,7 @@
 	],
 	"url": "https://github.com/yugenvtt/yugen-utils",
 	"manifest": "https://raw.githubusercontent.com/yugenvtt/yugen-utils/refs/heads/main/static/module.json",
-	"download": "https://github.com/yugenvtt/yugen-utils/releases/download/1.0.2/module.zip",
+	"download": "https://github.com/yugenvtt/yugen-utils/releases/download/1.0.3/module.zip",
 	"license": "LICENSE",
 	"socket": true
 }

@@ -98,7 +98,7 @@
 	cursor: pointer !important;
 	transition: all 0.2s ease !important;
 	padding: 0 !important;
-	font-size: 0.85rem !important;
+	font-size: 0 !important;
 	box-shadow: none !important;
 	position: absolute !important;
 	top: 14px !important;
@@ -122,14 +122,22 @@
 	border-color: var( --yugen-danger-border ) !important;
 }
 
-.yugen-app.app .window-header .close
-{
-	font-size: 0 !important;
-}
-
-.yugen-app.app .window-header .close i
+.yugen-app.app .window-header button.header-control i,
+.yugen-app.app .window-header [data-action="close"] i,
+.yugen-app.app .window-header button.close i,
+.yugen-app.app .window-header .close i,
+.yugen-app.app .window-header .header-control i,
+.yugen-app.app button.header-control i,
+.yugen-app.app [data-action="close"] i,
+.yugen-app.app button.close i,
+.yugen-app.app .close i,
+.yugen-app.app .header-control i
 {
 	font-size: 0.85rem !important;
+	line-height: 1 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	display: inline-block !important;
 }
 
 /**
