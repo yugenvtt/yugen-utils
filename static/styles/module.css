@@ -1,1 +1,348 @@
-/* yugen-utils shared styles */
+@import url( 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap' );
+
+:root
+{
+	--yugen-font-family: 'Outfit', sans-serif;
+	--yugen-bg-dark: #090a0f;
+	--yugen-border-color: rgba( 255, 255, 255, 0.05 );
+	--yugen-border-radius-lg: 14px;
+	--yugen-border-radius-md: 8px;
+	--yugen-border-radius-sm: 6px;
+	--yugen-shadow: 0 20px 40px rgba( 0, 0, 0, 0.8 );
+	--yugen-shadow-sm: 0 4px 12px rgba( 0, 0, 0, 0.1 );
+	--yugen-text-primary: #e2e8f0;
+	--yugen-text-secondary: #94a3b8;
+	--yugen-text-muted: #64748b;
+	--yugen-accent: #38bdf8;
+	--yugen-accent-trans: rgba( 56, 189, 248, 0.08 );
+	--yugen-accent-border: rgba( 56, 189, 248, 0.15 );
+	--yugen-danger: #f43f5e;
+	--yugen-danger-trans: rgba( 244, 63, 94, 0.1 );
+	--yugen-danger-border: rgba( 244, 63, 94, 0.25 );
+}
+
+/**
+ * premium minimal window theme
+ **/
+.yugen-app.app
+{
+	background: var( --yugen-bg-dark ) !important;
+	border: 1px solid var( --yugen-border-color ) !important;
+	border-image: none !important;
+	border-radius: var( --yugen-border-radius-lg ) !important;
+	box-shadow: var( --yugen-shadow ) !important;
+	color: var( --yugen-text-primary ) !important;
+	overflow: hidden !important;
+	font-family: var( --yugen-font-family ) !important;
+}
+
+.yugen-app.app .window-content
+{
+	background: transparent !important;
+	padding: 0 !important;
+	display: flex !important;
+	flex-direction: column !important;
+}
+
+.yugen-app.app input,
+.yugen-app.app select,
+.yugen-app.app textarea,
+.yugen-app.app button:not( .header-control ):not( .close ),
+.yugen-app.app select option
+{
+	font-family: var( --yugen-font-family ) !important;
+}
+
+/**
+ * window header
+ **/
+.yugen-app.app .window-header
+{
+	background: transparent !important;
+	border-bottom: none !important;
+	border-image: none !important;
+	padding: 0 !important;
+	height: 0 !important;
+	min-height: 0 !important;
+	position: static !important;
+}
+
+.yugen-app.app .window-header .window-title
+{
+	display: none !important;
+}
+
+/**
+ * premium window header close button
+ **/
+.yugen-app.app .window-header button.header-control,
+.yugen-app.app .window-header [data-action="close"],
+.yugen-app.app .window-header button.close,
+.yugen-app.app .window-header .close,
+.yugen-app.app .window-header .header-control,
+.yugen-app.app button.header-control,
+.yugen-app.app [data-action="close"],
+.yugen-app.app button.close,
+.yugen-app.app .close,
+.yugen-app.app .header-control
+{
+	color: var( --yugen-text-muted ) !important;
+	background: rgba( 255, 255, 255, 0.03 ) !important;
+	border: 1px solid var( --yugen-border-color ) !important;
+	border-radius: var( --yugen-border-radius-md ) !important;
+	width: 28px !important;
+	height: 28px !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	cursor: pointer !important;
+	transition: all 0.2s ease !important;
+	padding: 0 !important;
+	font-size: 0.85rem !important;
+	box-shadow: none !important;
+	position: absolute !important;
+	top: 14px !important;
+	right: 14px !important;
+	z-index: 100 !important;
+}
+
+.yugen-app.app .window-header button.header-control:hover,
+.yugen-app.app .window-header [data-action="close"]:hover,
+.yugen-app.app .window-header button.close:hover,
+.yugen-app.app .window-header .close:hover,
+.yugen-app.app .window-header .header-control:hover,
+.yugen-app.app button.header-control:hover,
+.yugen-app.app [data-action="close"]:hover,
+.yugen-app.app button.close:hover,
+.yugen-app.app .close:hover,
+.yugen-app.app .header-control:hover
+{
+	color: var( --yugen-danger ) !important;
+	background: var( --yugen-danger-trans ) !important;
+	border-color: var( --yugen-danger-border ) !important;
+}
+
+.yugen-app.app .window-header .close
+{
+	font-size: 0 !important;
+}
+
+.yugen-app.app .window-header .close i
+{
+	font-size: 0.85rem !important;
+}
+
+/**
+ * general form elements
+ **/
+.yugen-app.app form
+{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background: transparent !important;
+}
+
+.yugen-app.app form .sheet-header
+{
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding: 20px 20px 14px 20px;
+	border-bottom: 1px solid var( --yugen-border-color );
+	background: rgba( 5, 6, 9, 0.15 );
+}
+
+.yugen-app.app form .sheet-header img.profile-img
+{
+	flex: 0 0 48px;
+	width: 48px;
+	height: 48px;
+	border-radius: var( --yugen-border-radius-md );
+	border: 1px solid var( --yugen-border-color );
+}
+
+.yugen-app.app form .sheet-header .header-details
+{
+	flex: 1;
+}
+
+.yugen-app.app form .sheet-header h1.charname
+{
+	margin: 0;
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: #ffffff;
+	border: none;
+}
+
+.yugen-app.app form .sheet-header .subtitle
+{
+	margin: 2px 0 0 0;
+	font-size: 0.75rem;
+	color: var( --yugen-text-secondary );
+	text-transform: lowercase;
+}
+
+.yugen-app.app .yugen-config-body
+{
+	flex: 1;
+	overflow-y: auto;
+	padding: 20px;
+}
+
+.yugen-app.app fieldset
+{
+	border: 1px solid var( --yugen-border-color );
+	border-radius: var( --yugen-border-radius-md );
+	padding: 16px;
+	margin: 0 0 20px 0;
+	background: rgba( 255, 255, 255, 0.01 );
+}
+
+.yugen-app.app fieldset legend
+{
+	font-size: 0.85rem;
+	font-weight: 700;
+	color: var( --yugen-accent );
+	padding: 0 8px;
+}
+
+.yugen-app.app .form-group
+{
+	margin-bottom: 12px;
+}
+
+.yugen-app.app .form-group:last-child
+{
+	margin-bottom: 0;
+}
+
+.yugen-app.app .form-group label
+{
+	display: block;
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: var( --yugen-text-primary );
+	margin-bottom: 6px;
+}
+
+.yugen-app.app .form-group p.notes
+{
+	font-size: 0.75rem;
+	color: var( --yugen-text-secondary );
+	margin: 0 0 8px 0;
+	line-height: 1.4;
+}
+
+.yugen-app.app textarea,
+.yugen-app.app input[type="text"],
+.yugen-app.app input[type="number"],
+.yugen-app.app select
+{
+	width: 100%;
+	background: rgba( 0, 0, 0, 0.25 ) !important;
+	border: 1px solid var( --yugen-border-color ) !important;
+	border-radius: var( --yugen-border-radius-sm ) !important;
+	color: var( --yugen-text-primary ) !important;
+	padding: 8px 12px !important;
+	font-size: 0.85rem !important;
+	transition: all 0.2s ease !important;
+	height: auto !important;
+	box-shadow: none !important;
+}
+
+.yugen-app.app textarea:focus,
+.yugen-app.app input[type="text"]:focus,
+.yugen-app.app input[type="number"]:focus,
+.yugen-app.app select:focus
+{
+	border-color: var( --yugen-accent ) !important;
+	background: rgba( 0, 0, 0, 0.35 ) !important;
+}
+
+.yugen-app.app .form-fields
+{
+	display: flex;
+	gap: 6px;
+	align-items: center;
+}
+
+.yugen-app.app .form-fields input
+{
+	flex: 1;
+}
+
+.yugen-app.app .form-fields button
+{
+	flex: 0 0 auto;
+	height: 34px !important;
+	width: 34px !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 !important;
+}
+
+.yugen-app.app button,
+.yugen-app.app .sheet-footer button
+{
+	background: rgba( 255, 255, 255, 0.03 );
+	border: 1px solid var( --yugen-border-color );
+	color: var( --yugen-text-primary );
+	border-radius: var( --yugen-border-radius-sm );
+	cursor: pointer;
+	font-size: 0.85rem;
+	font-weight: 600;
+	transition: all 0.2s ease;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	white-space: nowrap !important;
+}
+
+.yugen-app.app button:hover,
+.yugen-app.app .sheet-footer button:hover
+{
+	background: rgba( 255, 255, 255, 0.08 );
+	border-color: rgba( 255, 255, 255, 0.15 );
+}
+
+.yugen-app.app button:disabled
+{
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.yugen-app.app form .sheet-footer
+{
+	flex: 0 0 auto;
+	padding: 14px 20px 20px 20px;
+	border-top: 1px solid var( --yugen-border-color );
+	display: flex;
+	gap: 12px;
+	justify-content: flex-end;
+	background: rgba( 5, 6, 9, 0.15 );
+}
+
+.yugen-app.app form .sheet-footer button
+{
+	height: 38px;
+	padding: 0 20px;
+}
+
+.yugen-app.app form .sheet-footer button[type="submit"]
+{
+	background: #ffffff;
+	color: #0f172a;
+	border-color: #ffffff;
+}
+
+.yugen-app.app form .sheet-footer button[type="submit"]:hover
+{
+	background: #f1f5f9;
+	border-color: #f1f5f9;
+	box-shadow: 0 4px 12px rgba( 255, 255, 255, 0.1 );
+}
