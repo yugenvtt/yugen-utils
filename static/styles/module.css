@@ -106,6 +106,17 @@
 	z-index: 100 !important;
 }
 
+/** restore font-size for ApplicationV2 button controls which don't use <i> wrappers **/
+.yugen-app.app .window-header button.header-control,
+.yugen-app.app .window-header button.close,
+.yugen-app.app .window-header button[data-action="close"],
+.yugen-app.app button.header-control,
+.yugen-app.app button.close,
+.yugen-app.app button[data-action="close"]
+{
+	font-size: 0.85rem !important;
+}
+
 .yugen-app.app .window-header button.header-control:hover,
 .yugen-app.app .window-header [data-action="close"]:hover,
 .yugen-app.app .window-header button.close:hover,
